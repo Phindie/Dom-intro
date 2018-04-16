@@ -4,14 +4,14 @@ var textBillElem = document.querySelector(".billTypeText");
 var addToBill = document.querySelector(".addToBillBtn");
 //create a variable that will keep track of the total bill
 // var totalCostElem = document.querySelector(".textBillTotal")
-var callsTotalElem = document.querySelector(".callTotalOne") ;
-var smsTotalElem = document.querySelector(".smsTotalOne") ;
-var totalCostElem = document.querySelector(".totalOne") ;
+var callsTotalElement = document.querySelector(".callTotalOne") ;
+var smsTotalElement = document.querySelector(".smsTotalOne") ;
+var totalCostElement = document.querySelector(".totalOne") ;
 
 
 var callsTotal = 0;
-var smsTotal = 0;
- var billTotal = 0;
+var textSms = 0;
+var billTotal = 0;
 
 // the event listener is declared below here
 function textBillTotal(){
@@ -22,22 +22,24 @@ function textBillTotal(){
         callsTotal += 2.75;
     }
     else if (textBill === "sms"){
-        smsTotal += 0.65;
+        textSms += 0.65;
+
     }
 
     //update the totals that is displayed on the screen.
-    callsTotalElem.innerHTML = callsTotal.toFixed(2);
-    smsTotalElem.innerHTML = smsTotal.toFixed(2);
-    var billTotal = callsTotal + smsTotal;
-    totalCostElem.innerHTML = billTotal.toFixed(2);
+    callsTotalElement.innerHTML = callsTotal.toFixed(2);
+    smsTotalElement.innerHTML = textSms.toFixed(2);
+      //console.log(smsTotal);
+    billTotal = callsTotal + textSms;
+    totalCostElement.innerHTML = billTotal.toFixed(2);
 
 // var totalCost = textBill.toFixed(2);
     if (billTotal >= 30 && billTotal <= 50){
           // adding the danger class will make the text red
-          totalCostElem.classList.add("warning");
+          totalCostElement.classList.add("warning");
       }
       else if (billTotal >= 50){
-          totalCostElem.classList.add("danger");
+          totalCostElement.classList.add("danger");
       }
 
    }

@@ -34,12 +34,20 @@ function calculateBtnClicked(){
 
     if (roundedBillTotal >= 20 && roundedBillTotal <= 30){
            billTotalElement.classList.add("warning");
+
        }
        else if (roundedBillTotal >= 30){
-         // adding the danger class will make the text red
+
             billTotalElement.classList.add("danger");
        }
 
+       if(roundedBillTotal < 20){
+         billTotalElement.classList.remove("warning");
+      }
+      else if (roundedBillTotal < 30){
+
+       billTotalElement.classList.remove("danger");
+      }
 
 }
 

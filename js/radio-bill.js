@@ -4,11 +4,11 @@ var billItemType = document.querySelector(".billItemTypeRadio");
 var radioBill = document.querySelector(".radioBillAddBtn");
 var callsTotalEle = document.querySelector(".callTotalTwo");
 var smsTotalEle = document.querySelector(".smsTotalTwo");
-var  totalElem = document.querySelector(".totalTwo");
+var  totalEle = document.querySelector(".totalTwo");
 //create a variable that will keep track of the total bill
 
-var callsTotal = 0;
-var smsTotal = 0;
+var callsTotals = 0;
+var smsTotals = 0;
  var totals = 0;
 
 //add an event listener for when the add button is pressed
@@ -17,36 +17,33 @@ function radioBillTotal(){
   var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
   if (checkedRadioBtn){
      var billItemType = checkedRadioBtn.value
-
    }
 
   if (billItemType === "call"){
-       callsTotal += 2.75;
+       callsTotals += 2.75;
 }
 else if (billItemType === "sms"){
-    smsTotal += 0.65;
+    smsTotals += 0.65;
   }
 
 
 //update the totals that is displayed on the screen.
-callsTotalEle.innerHTML = callsTotal.toFixed(2);
-smsTotalEle.innerHTML = smsTotal.toFixed(2);
-var totals = smsTotal + callsTotal;
-totalElem.innerHTML = totals.toFixed(2);
+callsTotalEle.innerHTML = callsTotals.toFixed(2);
+smsTotalEle.innerHTML = smsTotals.toFixed(2);
+ totals = smsTotals + callsTotals;
+totalEle.innerHTML = totals.toFixed(2);
 
+/*if(totals > 50){
+  alert("Total is more than 50");
+// }*/
 // var totals = textBill.toFixed(2);
 if (totals >= 30 && totals <= 50){
       // adding the danger class will make the text red
-      totalElem.classList.add("warning");
+      totalEle.classList.add("warning");
   }
   else if (totals >= 50){
-      totalElem.classList.add("danger");
+      totalEle.classList.add("danger");
   }
-  // else if
-  //   radioBill.addEventListener('click', function(){
-  //        alert(" are designed for representing lists of multiple items when only one selection is appropriate")
-  //      });
-  //
 }
 
 radioBill.addEventListener("click", radioBillTotal);
