@@ -54,6 +54,10 @@ function billSettingTotal(){
      var billItemTypeWithSettings = checkedRadio.value;
     // console.log(checkedRadio);
    }
+
+   if(billItemTypeWithSettings === "call"){
+      totalCall += callCostSet;
+   }
 if (totally >= criticalLevelSet){
 
 }
@@ -85,9 +89,7 @@ else{
 
 
 }
-   if(billItemTypeWithSettings === "call"){
-      totalCall += callCostSet;
-   }
+
 
 
 }
