@@ -55,18 +55,22 @@ function billSettingTotal(){
     // console.log(checkedRadio);
    }
 
-   if(billItemTypeWithSettings === "call"){
-      totalCall += callCostSet;
-   }
+
 if (totally >= criticalLevelSet){
 
 }
 else{
-
-  if(billItemTypeWithSettings === "sms"){
+       if(billItemTypeWithSettings === "call"){
+       totalCall += callCostSet;
+     }
+       else if(billItemTypeWithSettings === "sms"){
      totalSms += smsCostSet;
 
    }
+
+
+ }
+
 
    //add an event listener for when the add button is pressed
    callTotal.innerHTML = totalCall.toFixed(2);
@@ -92,7 +96,7 @@ else{
 
 
 
-}
+
 
 addSettingsBtn.addEventListener("click", billSettingTotal);
 //in the event listener get the value from the billItemTypeRadio radio buttons
