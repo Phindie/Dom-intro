@@ -41,6 +41,16 @@ function updateSettings(){
 criticalLevelSet = parseFloat(criticalType);
 //console.log(smsCostSet)
 //console.log(callCostSet)
+if(totally >= warningLevelSet){
+settingsTotal.style.color = "orange";
+}
+
+ if(totally >= criticalLevelSet){
+   settingsTotal.style.color = "red";
+}
+ else if(totally < warningLevelSet){
+    settingsTotal.style.color = "black";
+   }
 
 }
 updateLevelElement.addEventListener("click", updateSettings);
@@ -62,6 +72,7 @@ if (totally >= criticalLevelSet){
 else{
        if(billItemTypeWithSettings === "call"){
        totalCall += callCostSet;
+
      }
        else if(billItemTypeWithSettings === "sms"){
      totalSms += smsCostSet;
@@ -82,14 +93,16 @@ else{
    //console.log(settingsTotal);
 
 
-  if(totally >= warningLevelSet){
-  settingsTotal.classList.add("warning");
-  }
-
-  if(totally >= criticalLevelSet){
-     settingsTotal.classList.add("danger");
-
+   if(totally >= warningLevelSet){
+   settingsTotal.style.color = "orange";
    }
+
+    if(totally >= criticalLevelSet){
+      settingsTotal.style.color = "red";
+   }
+   else if(totally < warningLevelSet){
+      settingsTotal.style.color = "black";
+     }
 
 
 }
