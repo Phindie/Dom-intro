@@ -16,9 +16,12 @@ it('Should return the total cost of the sms ', function(){
   setBill.costsmsSet(1.00);
 
   setBill.setTotal('sms');
+  setBill.setTotal('sms');
+  setBill.setTotal('sms');
+  setBill.setTotal('sms');
 
 
-  assert.equal(setBill.setSms(), 1.00);
+  assert.equal(setBill.setSms(), 4.00);
 
    });
 

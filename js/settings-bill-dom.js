@@ -30,25 +30,22 @@ function settingUpdates(){
 
 
   setBill.costcallSet(callType);
-  console.log(setBill.costcallSet(callType))
- setBill.costsmsSet(smsType);
-  console.log(setBill.costsmsSet(smsType))
+  setBill.costsmsSet(smsType);
   setBill.costwarnSet(warningType);
   setBill.costcritSet(criticalType);
 
 
-}
-
-  if(setBill.settotal() > setBill.warningLevelSet()){
+  if(setBill.setTotals() > setBill.warningLevelSet()){
   settingsTotal.style.color = "orange";
   }
-  else if(setBill.settotal() > setBill.criticalLevelSet()){
+  if(setBill.setTotals() > setBill.criticalLevelSet()){
      settingsTotal.style.color = "red";
   }
-  else if(setBill.settotal() < setBill.warningLevelSet()){
+  else if(setBill.setTotals() < setBill.warningLevelSet()){
      settingsTotal.style.color = "black";
     }
   }
+
 
 
 function billSettingTotal(){
@@ -60,27 +57,23 @@ function billSettingTotal(){
 }
 
 
+
    var overTotal = setBill.setTotals();
+   
    callTotal.innerHTML = setBill.setCalls();
-   console.log(callTotal)
    smsTotal.innerHTML = setBill.setSms();
    settingsTotal.innerHTML = overTotal;
 
 
+   if(overTotal > setBill.warningLevelSet()){
+   settingsTotal.style.color = "orange";
+   }
 
+ if(overTotal > setBill.criticalLevelSet()){
+      settingsTotal.style.color = "red";
+   }
  }
 
-
-// else if(overTotal> setBill.criticalLevelSet()){
-//       settingsTotal.style.color = "red";
-//    }
-
-if(setBill.setTotal() > setBill.warningLevelSet()){
-  settingsTotal.style.color = "orange";
-}else if(setBill.setTotal() > setBill.criticalLevelSet()){
-   settingsTotal.style.color = "red";
-}
- }
 
 
 
