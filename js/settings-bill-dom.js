@@ -37,21 +37,8 @@ function settingUpdates(){
   setBill.costcritSet(criticalType);
 
 
-<<<<<<< HEAD
-  // if(setBill.settotal() > setBill.warningLevelSet()){
-  // settingsTotal.style.color = "orange";
-  // }
-  //
-  //  if(setBill.settotal() > setBill.criticalLevelSet()){
-  //    settingsTotal.style.color = "red";
-  // }
-  // else if(setBill.settotal() < setBill.warningLevelSet()){
-  //    settingsTotal.style.color = "black";
-  //   }
-  }
+}
 
-
-=======
   if(setBill.settotal() > setBill.warningLevelSet()){
   settingsTotal.style.color = "orange";
   }
@@ -63,16 +50,6 @@ function settingUpdates(){
     }
   }
 
- // if (setUserBill.total() > setUserBill.settingWarningBill()){
- //      settingTotalElem.style.color = 'orange';
-
- //    }else if (setUserBill.total() > setUserBill.settingCriticalBill()) {
- //      settingTotalElem.style.color = 'red';
-
- //    }else if (setUserBill.total() < setUserBill.settingWarningBill()) {
- //      settingTotalElem.style.color = 'black';
- //    }
->>>>>>> 73f51ec0e508f4b75497ad5b7a9a4dff8d02e41e
 
 function billSettingTotal(){
 
@@ -81,19 +58,6 @@ function billSettingTotal(){
      var billItemTypeWithSettings = checkedRadio.value;
   setBill.setTotal(billItemTypeWithSettings);
 }
-<<<<<<< HEAD
- // if (setBill.passesCritical()) {
- //          settingsTotal.style.color = 'red';
- //        }
- //        else{
- //
-=======
-  // if (setBill.passesCritical()) {
-  //          settingsTotal.style.color = 'red';
-  //        }
-  //       else{
- 
->>>>>>> 73f51ec0e508f4b75497ad5b7a9a4dff8d02e41e
 
 
    var overTotal = setBill.setTotals();
@@ -103,16 +67,10 @@ function billSettingTotal(){
    settingsTotal.innerHTML = overTotal;
 
 
-//    if(overTotal  > setBill.warningLevelSet()){
-//    settingsTotal.style.color = "orange";
-//    }
-<<<<<<< HEAD
-// if(overTotal> setBill.criticalLevelSet()){
-//       settingsTotal.style.color = "red";
-//    }
+
  }
 
-=======
+
 // else if(overTotal> setBill.criticalLevelSet()){
 //       settingsTotal.style.color = "red";
 //    }
@@ -123,13 +81,6 @@ if(setBill.setTotal() > setBill.warningLevelSet()){
    settingsTotal.style.color = "red";
 }
  }
- // if (setUserBill.total() > setUserBill.settingWarningBill()){
- //            // adding the danger class will make the text red
- //            settingTotalElem.style.color = 'orange';
- //          }else if (setUserBill.total() > setUserBill.settingCriticalBill()) {
- //            settingTotalElem.style.color = 'red';
- //          }
->>>>>>> 73f51ec0e508f4b75497ad5b7a9a4dff8d02e41e
 
 
 
