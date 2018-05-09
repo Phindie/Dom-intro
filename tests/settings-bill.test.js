@@ -7,7 +7,7 @@ describe('settingsBill DOM function', function(){
 
           setBill.calc('call');
 
-       assert.equal(setBill.setCall(),);
+       assert.equal(setBill.setCall(), );
   });
 
 it('Should return the total cost of the sms ', function(){
@@ -20,7 +20,7 @@ it('Should return the total cost of the sms ', function(){
           setBill.calc('sms');
           setBill.calc('sms');
 
-        assert.equal(setBill.setSMS(), );
+        assert.equal(setBill.setSMS(),);
   });
 
 });
