@@ -68,6 +68,7 @@ function SettingCost(){
         setSMS :  costsmsSet,
         setWarn : costwarnSet,
         setCrit : costcritSet,
+
         calc : updateSettings,
         getCALL : getCall,
         getSMS : getSms,

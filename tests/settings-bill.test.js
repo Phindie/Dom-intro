@@ -3,24 +3,24 @@ describe('settingsBill DOM function', function(){
   it('Should return the total cost of the calls ', function(){
           var setBill = SettingCost();
 
-          setBill.costcallSet(3);
-          
-          setBill.setTotal('call');
+          setBill.getCALL(3.00);
 
-       assert.equal(setBill.setCalls(), 3);
+          setBill.calc('call');
+
+       assert.equal(setBill.setCall(),);
   });
 
 it('Should return the total cost of the sms ', function(){
          var setBill = SettingCost();
 
-          setBill.costsmsSet(1.00);
+          setBill.getSMS(1.00);
 
-          setBill.setTotal('sms');
-          setBill.setTotal('sms');
-          setBill.setTotal('sms');
-          setBill.setTotal('sms');
+          setBill.calc('sms');
+          setBill.calc('sms');
+          setBill.calc('sms');
+          setBill.calc('sms');
 
-        assert.equal(setBill.setSms(), 4.00);
+        assert.equal(setBill.setSMS(), );
   });
 
 });
