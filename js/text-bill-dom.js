@@ -9,11 +9,9 @@ var totalCostElement = document.querySelector(".totalOne") ;
 
 var userBill = Texttotal()
 
-function textBillTotal(){
-
-    var textBill = textBillElem.value;
-
-    userBill.addAmount(textBill);
+   function textBillTotal(){
+       var textBill = textBillElem.value;
+       userBill.addAmount(textBill);
 
     //update the totals that is displayed on the screen.
     callsTotalElement.innerHTML = userBill.addCalls();
@@ -21,15 +19,14 @@ function textBillTotal(){
     totalCostElement.innerHTML = userBill.addTotals();
 
 
-    if (userBill.addTotals() >= 50){
-          totalCostElement.classList.add("danger");
+  if (userBill.addTotals() >= 50){
+       totalCostElement.classList.add("danger");
       }
-      else if (userBill.addTotals() >= 30){
+  else if (userBill.addTotals() >= 30){
           totalCostElement.classList.add("warning");
           }
-          else if(userBill.addTotals()< 20){
-
-          }
+    else if(userBill.addTotals()< 20){
+      }
 
    }
 

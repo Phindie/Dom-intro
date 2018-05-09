@@ -16,67 +16,71 @@ var settingsTotal = document.querySelector(".totalSettings");
 // create a variables that will keep track of all the settings
  var setBill = SettingCost();
 
- updateLevelElement.addEventListener("click", settingUpdates);
-
 function settingUpdates(){
-
+    // geting the values from the dom
     var callType = callCostType.value;
-
     var smsType = smsCostType.value;
     var warningType = warningLevel.value;
-
     var criticalType = criticalLevel.value;
+    //set the values...
+    setBill.setCall(callType);
+    setBill.setSMS(smsType);
+    setBill.setWarn(warningType);
+    setBill.setCrit(criticalType);
+    //conditioning the color change...
 
 
-
-  setBill.costcallSet(callType);
-  setBill.costsmsSet(smsType);
-  setBill.costwarnSet(warningType);
-  setBill.costcritSet(criticalType);
-
-
-  if(setBill.setTotals() > setBill.warningLevelSet()){
-  settingsTotal.style.color = "orange";
+if(setBill.getTotal() > setBill.checkWarning()){
+      settingsTotal.style.color = "orange";
+      }
+       if(setBill.getTotal() < setBill.checkWarning()){
+       settingsTotal.style.color = "black";
+       }
+      else if(setBill.getTotal() > setBill.checkCritical()){
+       settingsTotal.style.color = "red";
+      }
   }
-  if(setBill.setTotals() > setBill.criticalLevelSet()){
-     settingsTotal.style.color = "red";
-  }
-  else if(setBill.setTotals() < setBill.warningLevelSet()){
-     settingsTotal.style.color = "black";
-    }
-  }
 
-
-
-function billSettingTotal(){
-
-  var checkedRadio = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+    updateLevelElement.addEventListener("click", settingUpdates);
+    function billSettingTotal(){
+    var checkedRadio = document.querySelector("input[name='billItemTypeWithSettings']:checked");
   if (checkedRadio){
      var billItemTypeWithSettings = checkedRadio.value;
-  setBill.setTotal(billItemTypeWithSettings);
+
+
+  if ( setBill.checkCritical()){
+       settingsTotal.style.color = "red";
+  }
+//conditioning the color change...
+  else{
+    if(billItemTypeWithSettings === 'call'){
+        callTotal.innerHTML = setBill.getCALL();
+        console.log(callTotal)
+      }
+      else if(billItemTypeWithSettings === 'sms'){
+        smsTotal.innerHTML = setBill.getSMS();
+        console.log(smsTotal)
+      }
+
+    setBill.calc(billItemTypeWithSettings);
+
+    settingsTotal.innerHTML = setBill.getCALL();
+    settingsTotal.innerHTML = setBill.getSMS();
+    settingsTotal.innerHTML = setBill.getTotal();
+
+
+ if(setBill.getTotal() > setBill.checkCritical()){
+     settingsTotal.style.color = "red";
+    }
+      if(setBill.getTotal() > setBill.checkWarning()){
+        settingsTotal.style.color = "orange";
+      }
+     else if(setBill.getTotal() < setBill.checkWarning()){
+      settingsTotal.style.color = "black";
+       }
+     }
+
+   }
+
 }
-
-
-
-   var overTotal = setBill.setTotals();
-   
-   callTotal.innerHTML = setBill.setCalls();
-   smsTotal.innerHTML = setBill.setSms();
-   settingsTotal.innerHTML = overTotal;
-
-
-   if(overTotal > setBill.warningLevelSet()){
-   settingsTotal.style.color = "orange";
-   }
-
- if(overTotal > setBill.criticalLevelSet()){
-      settingsTotal.style.color = "red";
-   }
- }
-
-
-
-
-
-
 addSettingsBtn.addEventListener("click", billSettingTotal);

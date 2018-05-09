@@ -1,13 +1,12 @@
 
 var billItemType = document.querySelector(".billItemTypeRadio");
-
 var radioBill = document.querySelector(".radioBillAddBtn");
 var callsTotalEle = document.querySelector(".callTotalTwo");
 var smsTotalEle = document.querySelector(".smsTotalTwo");
 var  totalEle = document.querySelector(".totalTwo");
 
 
-var userRadio = TotalRadio()
+var userTotal = TotalRadio()
 
 
 function radioBillTotal(){
@@ -16,19 +15,18 @@ function radioBillTotal(){
   if (checkedRadioBtn){
      var billItemType = checkedRadioBtn.value
    }
-
-  userRadio.addedbill(billItemType);
-
-
-callsTotalEle.innerHTML = userRadio.addedCalls();
-smsTotalEle.innerHTML = userRadio.addedSms();
-totalEle.innerHTML = userRadio.addedtotal();
+  userTotal.addedbill(billItemType);
 
 
-if (userRadio.reachedWarningLevel()){
+callsTotalEle.innerHTML = userTotal.addedCalls();
+smsTotalEle.innerHTML = userTotal.addedSms();
+totalEle.innerHTML = userTotal.addedtotal();
+
+
+if (userTotal.reachedWarningLevel()){
       totalEle.classList.add("warning");
   }
-  else if (userRadio.addedtotal() >= 50){
+  else if (userTotal.addedtotal() >= 50){
       totalEle.classList.add("danger");
   }
 }

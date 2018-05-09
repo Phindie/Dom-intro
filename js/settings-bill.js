@@ -8,8 +8,7 @@ function SettingCost(){
   var totalCall = 0;
   var totalSms = 0;
   var totally = 0;
-
-
+  //Setting values
   function costcallSet(value){
      callCostSet = parseFloat(value);
    }
@@ -18,83 +17,64 @@ function SettingCost(){
    }
 
   function costwarnSet(warning){
-      warningLevelSet =parseFloat(warning);
+      warningLevelSet = parseFloat(warning);
   }
-
   function costcritSet(critical){
-  criticalLevelSet = parseFloat(critical);
-
+       criticalLevelSet = parseFloat(critical);
+  }
+  //get the values
+  function getCall(){
+     return totalCall.toFixed(2);
+  }
+  function getSms(){
+    return totalSms.toFixed(2);
+  }
+  function getWarning(){
+    return warninglevelSet.toFixed(2);
   }
 
-function updateSettings(items){
+  function getCritical(){
+    return criticallevelSet.toFixed(2);
+  }
 
+  //calculate calls and sms
+  function updateSettings(items){
     if(items === "call"){
                 totalCall += callCostSet;
-        }
+                 // totally += callCostSet;
+         }
     else if(items === "sms"){
               totalSms += smsCostSet;
+               // totally += smsCostSet;
          }
-
-     }
-
-  function phoneCall(){
-     return  totalCall.toFixed(2);
-
-  }
-
-  function sentSms(){
-    return  totalSms.toFixed(2);
-
-  }
-
-  function Warninglevel(){
-    return Warninglevel;
-  }
-
-  function Criticallevel(){
-    return Criticallevel;
-  }
-
-  function Calllevel(){
-    return Callleveltype.toFixed(2);
-  }
-  function Smslevel(){
-    return Smsleveltype.toFixed(2);
-  }
-
+    }
+//calcualte and return total bill
   function billsTotal(){
-   totally = totalCall + totalSms;
-     return totally.toFixed(2);
-        }
-
-
+    totally = totalCall + totalSms;
+    return totally.toFixed(2);
+  }
+  //returns true if the critical is reached
   function passesCritical(){
-    return billsTotal() >= Criticallevel();
+    return (billsTotal()>= criticalLevelSet);
   }
-
+  //returns true if the warning is reached
   function passesWarning(){
-    return billsTotal() >= Warninglevel();
+    return (billsTotal() >=  warningLevelSet);
   }
 
-  // function reachedWarningLevel(){
-  //   return passesWarning() = 'red' && passesWarning() = 'orange'
-
-  // }
 
   return {
-    setTotal:updateSettings,
-    setCalls: phoneCall,
-    setSms: sentSms,
-    costcallSet,
-    costsmsSet,
-    costwarnSet,
-    costcritSet,
-
-    Criticallevel,
-    Warninglevel,
-    passesWarning,
-    passesCritical,
-    setTotals: billsTotal,
-
+        setCall : costcallSet,
+        setSMS :  costsmsSet,
+        setWarn : costwarnSet,
+        setCrit : costcritSet,
+        calc : updateSettings,
+        getCALL : getCall,
+        getSMS : getSms,
+        getTotal : billsTotal,
+        checkWarning : passesWarning,
+        criticalLevelSet,
+        warningLevelSet,
+        checkCritical : passesCritical
     }
 }

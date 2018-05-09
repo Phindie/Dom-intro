@@ -6,42 +6,32 @@ function TotalRadio(){
 
 
 function billRadio(billTypes){
-    if (billTypes === "call"){
+     if (billTypes === "call"){
        callsTotals += 2.75;
     }
-
-   else if (billTypes === "sms"){
+ else if (billTypes === "sms"){
         smsTotals += 0.65;
       }
 }
-
-
 function disCall(){
     return  callsTotals.toFixed(2);
-
-  }
-
-  function disSms(){
+   }
+function disSms(){
     return  smsTotals.toFixed(2);
      }
-
-     function disTotal(){
+function disTotal(){
        totals = callsTotals+smsTotals;
        return  totals.toFixed(2);
      }
-
-  function reachedWarningLevel(){
+function reachedWarningLevel(){
     return disTotal() >= 30 && disTotal() <= 50
   }
   
-
-  return {
+return {
      addedtotal: disTotal,
      addedCalls:disCall,
      addedSms:disSms,
      addedbill: billRadio,
      reachedWarningLevel
-
-
-    }
+   }
 }
