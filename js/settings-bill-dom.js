@@ -61,11 +61,14 @@ function billSettingTotal() {
       }
       if (total >= criticalThresh) {
         settingsTotal.classList.add("danger");
-
       }
-
-
-    }
+      else if (total < warningThresh) {
+        settingsTotal.classList.remove("warning");
+      }
+      else if (total < warningThresh) {
+        settingsTotal.classList.remove("danger");
+      }
+     }
 
 
 

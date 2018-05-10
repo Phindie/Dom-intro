@@ -51,14 +51,14 @@ function SettingCost(){
   }
 
   function getWarning(){
-    return warninglevelSet.toFixed(2);
+    return criticalLevelSet.toFixed(2);
   }
 
   function getCritical(){
-    return criticallevelSet.toFixed(2);
+    return criticalLevelSet.toFixed(2);
   }
 
-  //calculate calls and sms
+
 
 //calcualte and return total bill
   function billsTotal(){
@@ -69,14 +69,14 @@ function SettingCost(){
   function returntotal(){
     return totally.toFixed(2);
   }
-  // //returns true if the critical is reached
-  // function passesCritical(){
-  //   return (billsTotal()>= criticalLevelSet);
-  // }
-  // //returns true if the warning is reached
-  // function passesWarning(){
-  //   return (billsTotal() >=  warningLevelSet);
-  // }
+  //returns true if the critical is reached
+   function passesCritical(){
+     return (billsTotal()>= criticalLevelSet);
+   }
+   //returns true if the warning is reached
+  function passesWarning(){
+    return (billsTotal() >=  warningLevelSet);
+  }
 
 
   return {
@@ -87,12 +87,12 @@ function SettingCost(){
          warning :getWarning,
          critical :getCritical,
 
-        calc : updateSettings,
+         updateSettings,
         getCALL : getCall,
         getSMS : getSms,
         getTotal : billsTotal,
-        //checkWarning : passesWarning,
-        //checkCritical : passesCritical,
+         passesWarning,
+        passesCritical,
         returnTotal:returntotal,
     }
 }

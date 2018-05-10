@@ -4,10 +4,14 @@ describe('settingsBill DOM function', function(){
           var setBill = SettingCost();
 
           setBill.getCALL(3.00);
+          setBill.warning(6.00);
+          setBill.critical(9.00);
 
-          setBill.calc('call');
+          setBill.updateSettings('call');
 
-       assert.equal(setBill.setCall(), );
+        assert.equal(setBill.setCall(), );
+        assert.equal(setBill.getTotal(), undefined);
+        assert.equal(setBill.passesWarning(), false);
   });
 
 it('Should return the total cost of the sms ', function(){
@@ -15,12 +19,15 @@ it('Should return the total cost of the sms ', function(){
 
           setBill.getSMS(1.00);
 
-          setBill.calc('sms');
-          setBill.calc('sms');
-          setBill.calc('sms');
-          setBill.calc('sms');
+          setBill.updateSettings('sms');
+          setBill.updateSettings('sms');
+          setBill.updateSettings('sms');
+          setBill.updateSettings('sms');
 
-        assert.equal(setBill.setSMS(),);
+        // assert.equal(setBill.setSMS(),4.00);
+         assert.equal(setBill.passesWarning(), false);
+         assert.equal(setBill.passesCritical(), false);
+
   });
 
 });
