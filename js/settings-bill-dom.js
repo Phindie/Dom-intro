@@ -29,9 +29,10 @@ function settingUpdates() {
   setBill.setWarn(warningType);
   setBill.setCrit(criticalType);
 
-  //conditioning the color change...
-
-}
+//  if(updateLevelElement.disabled){
+//        updateLevelElement.disabled = false;
+// }
+}  //conditioning the color change..
 
 updateLevelElement.addEventListener("click", settingUpdates);
 
@@ -44,7 +45,7 @@ function billSettingTotal() {
           console.log(billItemTypeWithSettings)
 
     }
-  
+
        setBill.getTotal();
       var total = setBill.returnTotal();
       var warningThresh =setBill.setWarn(warningLevel.value);
@@ -62,10 +63,10 @@ function billSettingTotal() {
       if (total >= criticalThresh) {
         settingsTotal.classList.add("danger");
       }
-      else if (total < warningThresh) {
+      else if (total <= warningThresh) {
         settingsTotal.classList.remove("warning");
       }
-      else if (total < warningThresh) {
+      else if (total <= criticalThresh) {
         settingsTotal.classList.remove("danger");
       }
      }

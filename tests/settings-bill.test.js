@@ -7,7 +7,7 @@ describe('settingsBill DOM function', function(){
           setBill.warning(6.00);
           setBill.critical(9.00);
 
-          setBill.updateSettings('call');
+          setBill.calc('call');
 
         assert.equal(setBill.setCall(), );
         assert.equal(setBill.getTotal(), undefined);
@@ -19,10 +19,10 @@ it('Should return the total cost of the sms ', function(){
 
           setBill.getSMS(1.00);
 
-          setBill.updateSettings('sms');
-          setBill.updateSettings('sms');
-          setBill.updateSettings('sms');
-          setBill.updateSettings('sms');
+          setBill.calc('sms');
+          setBill.calc('sms');
+          setBill.calc('sms');
+          setBill.calc('sms');
 
         // assert.equal(setBill.setSMS(),4.00);
          assert.equal(setBill.passesWarning(), false);

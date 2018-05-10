@@ -87,7 +87,7 @@ function SettingCost(){
          warning :getWarning,
          critical :getCritical,
 
-         updateSettings,
+        calc : updateSettings,
         getCALL : getCall,
         getSMS : getSms,
         getTotal : billsTotal,
